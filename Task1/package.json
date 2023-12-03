@@ -1,0 +1,15 @@
+{
+  "name": "api-app",
+  "version": "1.0.0",
+  "description": "Create simple API module and run it on ECS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Shay RM",
+  "license": "ISC",
+  "dependencies": {
+    "express": "latest"
+  }
+}
