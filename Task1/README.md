@@ -1,5 +1,16 @@
 # Task 1 - API application
 
+- [Task 1 - API application](#task-1---api-application)
+  - [Overview](#overview)
+  - [System architecture](#system-architecture)
+    - [What is Amazon ECR and ECS?](#what-is-amazon-ecr-and-ecs)
+    - [What is AWS Fargate?](#what-is-aws-fargate)
+    - [What is AWS Copilot?](#what-is-aws-copilot)
+    - [What is CloudFront?](#what-is-cloudfront)
+  - [Execution activities](#execution-activities)
+  - [Task Results](#task-results)
+
+
 ## Overview
 
 This task covers basic code writing capabilities and cloud infrastructure knowledge. 
@@ -112,6 +123,9 @@ At the end of the process the infrastructure was ready with the Docker image imp
 5) CloudFront distribution created with two origins: ALB and S3.
 The S3 bucket policy was updated to allow Cloudfront distribution to access the S3 resource. 
 Cloudfront behavior definition direct each request the the correct origan: /index.html to the S3 bucket, /v1/* to the ECS  
+
+
+## Task Results
 
 The images below provides a snapshot of the different requests.
 
