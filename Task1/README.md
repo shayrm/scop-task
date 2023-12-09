@@ -8,8 +8,10 @@ The task include creating application to answer basic api calls and be implement
 The following items were included:
 
 :white_check_mark: A Node.js application including index.js file that contains the following routes:
-    * GET /v1/test - returns “This is Scopio Labs” message and a 200 status code.  
-    * GET /v1/health - returns "I am alive..." with a 200 status code.    
+
+* GET /v1/test - returns “This is Scopio Labs” message and a 200 status code.
+* GET /v1/health - returns "I am alive..." with a 200 status code.    
+
 :white_check_mark: The application was dockerized with a configurable port and hostname through env vars.  
 :white_check_mark: The docker image was uploaded to ECR and assigned to a new registry.  
 :white_check_mark: ECS cluster created, with service and tasks, deploying the application over us-east-1.  
