@@ -113,10 +113,18 @@ Cloudfront behavior definition direct each request the the correct origan: /inde
 
 The images below provides a snapshot of the different requests.
 
+
+
+[index request](https://d1ys7mmnt8oodh.cloudfront.net/index.html)
+
 ![/index.html](index_file.png)
+
+[test request](https://d1ys7mmnt8oodh.cloudfront.net/v1/test)
 
 ![api /v1/test](api-test.png)
 
-![api /v1/health](api-test.png)
+[health request](https://d1ys7mmnt8oodh.cloudfront.net/v1/health)
+
+![api /v1/health](api-health.png)
 
 
