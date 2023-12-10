@@ -2,27 +2,27 @@
 
 - [Task 2 - Solution Architecture](#task-2---solution-architecture)
   - [1. Overview](#1-overview)
-  - [2. Objective:](#2-objective)
-  - [3 Document Overview:](#3-document-overview)
-  - [4. Connectivity Solutions](#4-connectivity-solutions)
-    - [4.1 Reverse SSH](#41-reverse-ssh)
-    - [4.2 Improvement suggestions](#42-improvement-suggestions)
-    - [4.3 Alternative options](#43-alternative-options)
-  - [5. Software Upgrades.](#5-software-upgrades)
-    - [5.1 System considerations.](#51-system-considerations)
-    - [5.2 SW upgrade System Architecture:](#52-sw-upgrade-system-architecture)
-    - [5.3 Considerations:](#53-considerations)
-    - [5.4 Improvement options](#54-improvement-options)
-  - [6 Logs collection and telemetry data](#6-logs-collection-and-telemetry-data)
-    - [6.1 Logs Collection:](#61-logs-collection)
-    - [Telemetry Data:](#telemetry-data)
+    - [1.1 Objective:](#11-objective)
+    - [1.2 Document Overview:](#12-document-overview)
+  - [2. Connectivity Solutions](#2-connectivity-solutions)
+    - [2.1 Reverse SSH](#21-reverse-ssh)
+    - [2.2 Improvement suggestions](#22-improvement-suggestions)
+    - [2.3 Alternative options](#23-alternative-options)
+  - [3. Software Upgrades.](#3-software-upgrades)
+    - [3.1 System considerations.](#31-system-considerations)
+    - [3.2 SW upgrade System Architecture:](#32-sw-upgrade-system-architecture)
+    - [3.3 Considerations:](#33-considerations)
+    - [3.4 Improvement options](#34-improvement-options)
+  - [4 Logs collection and telemetry data](#4-logs-collection-and-telemetry-data)
+    - [4.1 Logs Collection:](#41-logs-collection)
+    - [4.2 Telemetry Data:](#42-telemetry-data)
 
 
 ## 1. Overview
 
 The main goals in this task is to provide an outline of the HLD document including schematics, system connectivity and flow of information for technical solutions. 
 
-## 2. Objective:
+### 1.1 Objective:
 
 The document propose an open source based solution that can provide the following functionality:
 
@@ -33,7 +33,7 @@ mutually authenticated).
 3. Collection of logs and telemetry data.
 
 
-## 3 Document Overview:
+### 1.2 Document Overview:
 
 The document covers a solution that takes these consideration in mind:
 1) Implementation simplicity.
@@ -44,12 +44,12 @@ The document covers a solution that takes these consideration in mind:
 The document will cover technical applicable solution suggestion, but also methods for improvements that can include third party applications.
 
 
-## 4. Connectivity Solutions 
+## 2. Connectivity Solutions 
 
 Several solutions could be suggested for remote connection system.
 In this section we specified different options. Starting with the most simple one and with the lowest cost, and others which are much more robust and can support large number of devices.
 
-### 4.1 Reverse SSH 
+### 2.1 Reverse SSH 
 One of the option to use is ssh with reverse connection option.
 SSH is one of the most used network protocol for interacting with remote servers and computers. However, in some cases, SSH access to a specific host can be blocked due to firewalls or other network settings.
 
@@ -124,7 +124,7 @@ user@client > ssh -p 5050 user@<remote_gw_ip>
 
 ```
 
-### 4.2 Improvement suggestions
+### 2.2 Improvement suggestions
 
 There are several ways to establish the remote connection:
 
@@ -160,7 +160,7 @@ WantedBy=multi-user.target
 
 4) The remote gateway could be dockerize so that each device will use different container.
 
-### 4.3 Alternative options
+### 2.3 Alternative options
 
 **tmate**
 
@@ -190,9 +190,9 @@ With Boundary you can:
 More information could be found [here](https://developer.hashicorp.com/boundary/docs/overview/what-is-boundary) and in the [github project](https://github.com/hashicorp/boundary).
 
 
-## 5. Software Upgrades.
+## 3. Software Upgrades.
 
-### 5.1 System considerations.
+### 3.1 System considerations.
 
 When designing software upgrades process, there are several considerations to keep in mind to ensure a smooth and efficient process. Here are some key factors to consider:
 
@@ -223,7 +223,7 @@ By carefully addressing these considerations, a system that facilitates smooth a
 
 Certainly! Designing a system to support software upgrades for a remote application using Docker and Docker Compose, while ensuring security through mutual authentication, involves several components. Below is a high-level overview of the system architecture and key features:
 
-### 5.2 SW upgrade System Architecture:
+### 3.2 SW upgrade System Architecture:
 
 To reduce upgrades failures and improve efficiency the software should use and apply micro services and based on containers technology.
 The description of such advantage is out of this document scope and we assumed the overall application on the device is based on Docker images and containers.
@@ -263,7 +263,7 @@ We divide the solution to two main elements: Server side, and client side (upgra
 8. **Testing Environment:**
    - **Testing Infrastructure:** Maintain a testing environment that mirrors the production environment. Test upgrades in this environment to identify and address any issues before deploying to production.
 
-### 5.3 Considerations:
+### 3.3 Considerations:
 
 - **Network Segmentation:** Implement network segmentation to isolate the upgrade infrastructure from other parts of the network, enhancing security.
 - **Regular Updates:** Keep all components of the system, including the Docker daemon, server OS, and client OS, up to date with the latest security patches.
@@ -284,7 +284,7 @@ The main parts of the script will be executing the following commands:
 docker-compose down && docker-compose build --pull && docker-compose up -d
 ```
 
-### 5.4 Improvement options
+### 3.4 Improvement options
 
 Alternative option to docker-compose container based system is to use Kubernetes.
 
@@ -312,13 +312,13 @@ Using standalone Kubernetes instead of Docker Compose can offer several advantag
 
 While Docker Compose is suitable for simpler, single-host environments, Kubernetes shines in more complex, distributed setups where advanced orchestration and scaling features are essential. The choice between the two depends on the specific needs and scale of your application.
 
-## 6 Logs collection and telemetry data
+## 4 Logs collection and telemetry data
 
 Monitoring performance, data collation and logs is critical and essential element for docker based system and critical for faults handling, troubleshooting and even for preventing maintenance.  
 Collecting logs and telemetry data is crucial for monitoring the health, performance, and behavior of a Docker-based system. 
 Here are several methods and tools you can use for logs collection and telemetry data:
 
-### 6.1 Logs Collection:
+### 4.1 Logs Collection:
 
 1. **Syslog:**
    - **Description:** Syslog is a standard for message logging. Docker supports sending container logs to the syslog daemon, making it a simple and widely supported option.
@@ -337,7 +337,7 @@ Here are several methods and tools you can use for logs collection and telemetry
    - **Description:** [Filebeat](https://github.com/elastic/beats/tree/master/filebeat) is part of the ELK stack and is designed for lightweight log shipping. It can be configured to collect logs from Docker containers and send them to a central location.
    - **Configuration:** Install Filebeat on each Docker host and configure it to ship logs to a centralized logging system.
 
-### Telemetry Data:
+### 4.2 Telemetry Data:
 
 1. **Docker Stats API:**
    - **Description:** Docker exposes a Stats API that provides real-time metrics for each running container. This API can be accessed by monitoring tools to collect performance data.
