@@ -4,7 +4,7 @@
 
 This repository serves as a comprehensive guide documenting the successful resolution of a challenging technical task assignment, encompassing aspects such as design, technical writing, networking knowledge, and cloud architecture.
 
-## Main Goals:
+## Main Tasks:
 
 1. **Code - API Application on AWS:**
    - Develop and implement an API application on the AWS platform.
